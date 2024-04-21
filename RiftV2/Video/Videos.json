@@ -1,0 +1,135 @@
+[
+    {
+        "fileName": "walkthrough.MOV",
+        "id": 1,
+        "url": "a",
+        "is3D": false,
+        "title": "HCILab Walkthrough",
+        "imageName": "beach",
+        "description": "Walking through the lab in my Apple Vision Pro. Possible first uploaded spatial video contender.",
+        "destination": "beach",
+        "info": {
+            "releaseYear": "2024",
+            "contentRating": "NR",
+            "duration": "1m 1s",
+            "genres": ["Drama","Romance"],
+            "directors": ["M. Seagull"],
+            "writers": ["R. Rock","G. Seaglass"],
+            "stars": ["N. Sand","P. Sky","J. Sun","L. Windy"]
+        }
+    },
+    {
+        "fileName": "mannequin.MOV",
+        "id": 2,
+        "url": "a",
+        "is3D": false,
+        "title": "Mannequin with a Guitar",
+        "imageName": "lake",
+        "description": "One of the projects at the HCI lab, interesting gadgets all around this mannequin",
+        "destination": "lake",
+        "info": {
+            "releaseYear": "2023",
+            "contentRating": "NR",
+            "duration": "19s",
+            "genres": ["Comedy","Action"],
+            "directors": ["D. Lily"],
+            "writers": ["Z. Splash"],
+            "stars": ["M. Turtle","K. Green"]
+        }
+    },
+    {
+        "fileName": "sitting.MOV",
+        "id": 3,
+        "url": "http://playgrounds-cdn.apple.com/assets/camping/index.m3u8",
+        "is3D": false,
+        "title": "Hackathon Squad",
+        "imageName": "camping",
+        "description": "Sitting in front of Andy, Minjun, and Ezra. Filmed by Brian. 2:30 AM at HCI Lab, March 11th 2024.",
+        "destination": "camping",
+        "info": {
+            "releaseYear": "2023",
+            "contentRating": "NR",
+            "duration": "28s",
+            "genres": ["Action","Adventure"],
+            "directors": ["O. Poppy"],
+            "writers": ["T. Daisy"],
+            "stars": ["S. Sticks","F. Log","A. Tent"]
+        }
+    },
+    {
+        "fileName": "walkthrough.MOV",
+        "id": 4,
+        "url": "http://playgrounds-cdn.apple.com/assets/park/index.m3u8",
+        "is3D": false,
+        "title": "Birds in the Park",
+        "imageName": "park",
+        "description": "On a dreamy spring day near the California hillside, some friendly little birds flutter about, hopping from stalk to stalk munching on some tasty seeds. Listen to them chatter as they go about their busy afternoon.",
+        "destination": "park",
+        "info": {
+            "releaseYear": "2023",
+            "contentRating": "NR",
+            "duration": "23s",
+            "genres": ["Documentary"],
+            "directors": ["S. Dandy","V. Sunny"],
+            "writers": ["G. Grass","A. Cloud"],
+            "stars": ["B. Misty","R. Hill"]
+        }
+    },
+    {
+        "fileName": "sitting.MOV",
+        "id": 5,
+        "url": "http://playgrounds-cdn.apple.com/assets/creek/index.m3u8",
+        "is3D": false,
+        "title": "Mystery Creek",
+        "imageName": "creek",
+        "description": "A mystery is brewing on a rainy Wednesday in California, as a couple of friends head to a local campsite for a weekend in the woods. They never anticipated what could be living down by the trickling, rocky creek.",
+        "destination": "creek",
+        "info": {
+            "releaseYear": "2023",
+            "contentRating": "NR",
+            "duration": "28s",
+            "genres": ["Mystery"],
+            "directors": ["N. Hide","K. Dark"],
+            "writers": ["G. Run"],
+            "stars": ["O. Scary","U. Dare"]
+        }
+    },
+    {
+        "fileName": "mannequin.MOV",
+        "id": 6,
+        "url": "http://playgrounds-cdn.apple.com/assets/hillside/index.m3u8",
+        "is3D": false,
+        "title": "The Rolling Hills",
+        "imageName": "hillside",
+        "description": "Discover the beauty beyond the highway, just steps away from your normal commute. What lies beyond is a stunning show of delicate fog rolling over the hillside.",
+        "destination": "hillside",
+        "info": {
+            "releaseYear": "2023",
+            "contentRating": "NR",
+            "duration": "1m 20s",
+            "genres": ["Romance","Drama"],
+            "directors": ["U. Brush"],
+            "writers": ["B. Cloud"],
+            "stars": ["L. Misty","P. Hill"]
+        }
+    },
+    {
+        "fileName": "walkthrough.MOV",
+        "id": 7,
+        "url": "http://playgrounds-cdn.apple.com/assets/ocean/index.m3u8",
+        "is3D": false,
+        "title": "Ocean Breeze",
+        "imageName": "ocean",
+        "description": "Experience the great flight of a black beetle, as it crawls along a giant rock near the lake preparing for takeoff. Where it will go, nobody knows!",
+        "destination": "ocean",
+        "info": {
+            "releaseYear": "2023",
+            "contentRating": "NR",
+            "duration": "14s",
+            "genres": ["Comedy","Action"],
+            "directors": ["B. Skies"],
+            "writers": ["V. Water","L. Shore"],
+            "stars": ["A. Leaf","E. Reed"]
+        }
+    }
+]
