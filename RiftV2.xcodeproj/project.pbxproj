@@ -26,6 +26,7 @@
 		9C2165E72BD450C500D0C890 /* Videos.json in Resources */ = {isa = PBXBuildFile; fileRef = 9C2165E32BD450C500D0C890 /* Videos.json */; };
 		9C2165E82BD450C500D0C890 /* mannequin.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 9C2165E42BD450C500D0C890 /* mannequin.MOV */; };
 		9C2165E92BD450C500D0C890 /* sitting.MOV in Resources */ = {isa = PBXBuildFile; fileRef = 9C2165E52BD450C500D0C890 /* sitting.MOV */; };
+		9C2165EB2BD4C57500D0C890 /* VideoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2165EA2BD4C57500D0C890 /* VideoPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		9C2165E32BD450C500D0C890 /* Videos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Videos.json; sourceTree = "<group>"; };
 		9C2165E42BD450C500D0C890 /* mannequin.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = mannequin.MOV; sourceTree = "<group>"; };
 		9C2165E52BD450C500D0C890 /* sitting.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sitting.MOV; sourceTree = "<group>"; };
+		9C2165EA2BD4C57500D0C890 /* VideoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				9C2165D32BD44D3C00D0C890 /* ThumbnailViewModel.swift */,
 				9C2165DE2BD44FB300D0C890 /* VideoPlayerView.swift */,
 				9C2165E02BD4502C00D0C890 /* PlayerView.swift */,
+				9C2165EA2BD4C57500D0C890 /* VideoPickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			files = (
 				9C2165DD2BD44EE100D0C890 /* PlayerModel.swift in Sources */,
 				9C2165D02BD44BC000D0C890 /* VideoListView.swift in Sources */,
+				9C2165EB2BD4C57500D0C890 /* VideoPickerView.swift in Sources */,
 				9C2165D92BD44DEB00D0C890 /* VideoLibrary.swift in Sources */,
 				9C2165E12BD4502C00D0C890 /* PlayerView.swift in Sources */,
 				9C2165DF2BD44FB300D0C890 /* VideoPlayerView.swift in Sources */,

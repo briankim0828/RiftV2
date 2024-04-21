@@ -19,6 +19,10 @@ struct ContentView: View {
     
     @State private var isPickingFile = false
     
+    @State private var showingVideoPicker = false
+    @State private var videoURL: URL?
+    @State private var uploadStatus: String = ""
+
 
 #if os(visionOS)
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
@@ -56,6 +60,43 @@ struct ContentView: View {
         player.loadVideo(video, presentation: .fullWindow)
     }
     
+    func uploadVideo(url: URL, completion: @escaping (Result<URL, Error>) -> Void) {
+        // Define the URL for your upload endpoint
+        let uploadURL = URL(string: "https://yourserver.com/upload")!
+
+        // Create a URLRequest
+        var request = URLRequest(url: uploadURL)
+        request.httpMethod = "POST"
+
+        // Start uploading the video
+        let task = URLSession.shared.uploadTask(with: request, fromFile: url) { data, response, error in
+            if let error = error {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                DispatchQueue.main.async {
+                    completion(.failure(URLError(.badServerResponse)))
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                if let data = data, let url = try? JSONDecoder().decode(URL.self, from: data) {
+                    completion(.success(url))
+                } else {
+                    completion(.failure(URLError(.cannotParseResponse)))
+                }
+            }
+        }
+
+        task.resume()
+    }
+
+    
     @ViewBuilder
     var mainView: some View {
         NavigationStack() {
@@ -74,6 +115,43 @@ struct ContentView: View {
                     VideoListView(title: "Recommended",
                                   videos: library.videos,
                                   cardSpacing: 30, selectionAction: loadVideoWrapperFunction)
+                    
+                    HStack{
+                        Spacer()
+                        
+                        Button("Pick Video from Photos Library") {
+                            print("ContentView: Photos Library Button Pressed")
+                            showingVideoPicker = true
+                        }
+                        .sheet(isPresented: $showingVideoPicker) {
+                            VideoPicker(selectedVideoURL: $videoURL)
+                        }
+                        .buttonStyle(.bordered)
+                        
+                        if let videoURL = videoURL {
+                                        Button("Upload Video") {
+                                            print("ContentView: upload button pressed")
+                                            uploadVideo(url: videoURL) { result in
+                                                switch result {
+                                                case .success(let url):
+                                                    uploadStatus = "Upload Successful: \(url.absoluteString)"
+                                                case .failure(let error):
+                                                    uploadStatus = "Upload Failed: \(error.localizedDescription)"
+                                                }
+                                            }
+                                        }
+                                        .buttonStyle(.bordered)
+                                    }
+                        
+                        Spacer()
+                    }
+                    
+                    
+                    HStack{
+                        Spacer()
+                        Text(uploadStatus)
+                        Spacer()
+                    }
                     
                 }
                 .padding([.top, .bottom], verticalPadding)
