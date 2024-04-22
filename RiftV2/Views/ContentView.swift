@@ -131,46 +131,45 @@ struct ContentView: View {
                     VideoListView(title: "Recommended",
                                   videos: library.videos,
                                   cardSpacing: 30, selectionAction: loadVideoWrapperFunction)
-                    
-                    HStack{
-                        Spacer()
-                        
-                        Button("Pick Video from Photos Library") {
-                            print("ContentView: Photos Library Button Pressed")
-                            showingVideoPicker = true
-                        }
-                        .sheet(isPresented: $showingVideoPicker) {
-                            VideoPicker(selectedVideoURL: $videoURL)
-                        }
-                        .buttonStyle(.bordered)
-                        
-                        if let videoURL = videoURL {
-                                        Button("Upload Video") {
-                                            print("ContentView: upload button pressed")
-                                            uploadVideo(url: videoURL) { result in
-                                                switch result {
-                                                case .success(let url):
-                                                    uploadStatus = "Upload Successful: \(url.absoluteString)"
-                                                case .failure(let error):
-                                                    uploadStatus = "Upload Failed: \(error.localizedDescription)"
-                                                }
-                                            }
-                                        }
-                                        .buttonStyle(.bordered)
-                                    }
-                        
-                        Spacer()
-                    }
-                    
-                    
-                    HStack{
-                        Spacer()
-                        Text(uploadStatus)
-                        Spacer()
-                    }
-                    
+
                 }
                 .padding([.top, .bottom], verticalPadding)
+            }
+            
+            HStack{
+                Spacer()
+                
+                Button("Pick Video from Photos Library") {
+                    print("ContentView: Photos Library Button Pressed")
+                    showingVideoPicker = true
+                }
+                .sheet(isPresented: $showingVideoPicker) {
+                    VideoPicker(selectedVideoURL: $videoURL)
+                }
+                .buttonStyle(.bordered)
+                
+                if let videoURL = videoURL {
+                                Button("Upload Video") {
+                                    print("ContentView: upload button pressed")
+                                    uploadVideo(url: videoURL) { result in
+                                        switch result {
+                                        case .success(let url):
+                                            uploadStatus = "Upload Successful: \(url.absoluteString)"
+                                        case .failure(let error):
+                                            uploadStatus = "Upload Failed: \(error.localizedDescription)"
+                                        }
+                                    }
+                                }
+                                .buttonStyle(.bordered)
+                            }
+                
+                Spacer()
+            }
+            
+            HStack{
+                Spacer()
+                Text(uploadStatus)
+                Spacer()
             }
         }
     }

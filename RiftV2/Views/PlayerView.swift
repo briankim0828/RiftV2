@@ -39,7 +39,7 @@ struct PlayerView: View {
                 }
             
         case .custom:
-            //placeholder
+            //placeholder, the ContentView doesn't mean anything: code doesn't reach here
             ContentView()
 //            InlinePlayerView()
         }

@@ -50,19 +50,6 @@ struct VideoPlayerView: UIViewControllerRepresentable {
         print("VideoPlayerView: finished makeUIViewController")
         return controller
     }
-    
-    var upNextAction: UIAction? {
-        // If there's no video loaded, return nil.
-        guard let video = model.currentItem else { return nil }
-
-        // Find the next video to play.
-        guard let nextVideo = library.findVideoInUpNext(after: video) else { return nil }
-        
-        return UIAction(title: "Play Next", image: UIImage(systemName: "play.fill")) { _ in
-            // Load the video for full-window presentation.
-            model.loadVideo(nextVideo, presentation: .fullWindow)
-        }
-    }
 }
 
 

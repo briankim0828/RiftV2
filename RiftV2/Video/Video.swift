@@ -81,16 +81,4 @@ struct Video: Identifiable, Hashable, Codable {
     }
 }
 
-// MARK: - #Preview Extensions
-//extension Video {
-//    static var preview: Video {
-//        VideoLibrary().videos[0]
-//    }
-//}
-//
-//extension Array {
-//    static var all: [Video] {
-//        VideoLibrary().videos
-//    }
-//}
 
