@@ -61,15 +61,32 @@ struct ContentView: View {
     }
     
     func uploadVideo(url: URL, completion: @escaping (Result<URL, Error>) -> Void) {
-        // Define the URL for your upload endpoint
-        let uploadURL = URL(string: "https://yourserver.com/upload")!
-
-        // Create a URLRequest
+        let uploadURL = URL(string: "https://riftv2fastapi.onrender.com/upload")!
         var request = URLRequest(url: uploadURL)
         request.httpMethod = "POST"
 
+        let boundary = "Boundary-\(UUID().uuidString)"
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+
+        var body = Data()
+
+        // Adding the file data
+        let fileData = try? Data(contentsOf: url)
+        let filename = url.lastPathComponent
+        let mimeType = "video/mp4" // Adjust this based on the actual video type
+
+        if let fileData = fileData {
+            body.append("--\(boundary)\r\n".data(using: .utf8)!)
+            body.append("Content-Disposition: form-data; name=\"file\"; filename=\"\(filename)\"\r\n".data(using: .utf8)!)
+            body.append("Content-Type: \(mimeType)\r\n\r\n".data(using: .utf8)!)
+            body.append(fileData)
+            body.append("\r\n".data(using: .utf8)!)
+        }
+
+        body.append("--\(boundary)--\r\n".data(using: .utf8)!)
+
         // Start uploading the video
-        let task = URLSession.shared.uploadTask(with: request, fromFile: url) { data, response, error in
+        let task = URLSession.shared.uploadTask(with: request, from: body) { data, response, error in
             if let error = error {
                 DispatchQueue.main.async {
                     completion(.failure(error))
@@ -92,7 +109,6 @@ struct ContentView: View {
                 }
             }
         }
-
         task.resume()
     }
 
